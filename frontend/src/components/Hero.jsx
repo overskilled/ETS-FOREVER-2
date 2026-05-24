@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { PHOTOS, STATS } from '../data/content';
 import { useCountUp } from '../hooks/useCountUp';
@@ -55,17 +55,19 @@ export default function Hero() {
             Établissement · depuis 2014
           </motion.span>
 
-          <h1 className="font-display font-extrabold uppercase text-ink-1 m-0 mb-4 md:mb-6 text-hero text-balance" aria-label="Bâtir pour durer.">
+          <h1 className="font-display font-extrabold uppercase text-ink-1 m-0 mb-4 md:mb-6 text-hero text-balance leading-[1.08]" aria-label="Bâtir pour durer.">
             {titleWords.map((w, i) => (
-              <span key={i} className="inline-block overflow-hidden align-bottom">
-                <motion.span
-                  variants={wordReveal}
-                  className={`inline-block will-change-transform ${w.accent ? 'text-brand-secondary' : ''}`}
-                >
-                  {w.text}
-                </motion.span>
+              <Fragment key={i}>
+                <span className="inline-block overflow-hidden align-bottom pb-[0.08em]">
+                  <motion.span
+                    variants={wordReveal}
+                    className={`inline-block will-change-transform ${w.accent ? 'text-brand-secondary' : ''}`}
+                  >
+                    {w.text}
+                  </motion.span>
+                </span>
                 {i === 0 ? <br/> : i < titleWords.length - 1 ? ' ' : null}
-              </span>
+              </Fragment>
             ))}
           </h1>
 
@@ -95,7 +97,7 @@ export default function Hero() {
             </a>
           </motion.div>
 
-          <motion.dl
+          {/* <motion.dl
             ref={ref}
             variants={stagger}
             initial="hidden"
@@ -107,7 +109,7 @@ export default function Hero() {
                 <Stat {...s} start={statsInView} />
               </div>
             ))}
-          </motion.dl>
+          </motion.dl> */}
         </motion.div>
 
         <motion.aside
