@@ -1,0 +1,30 @@
+# Don't ship build context the image won't use
+node_modules
+**/node_modules
+frontend/dist
+dist
+build
+
+# VCS / editor
+.git
+.gitignore
+.gitattributes
+.vscode
+.idea
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Design bundle + Claude tooling (not used at build time)
+_design_extract
+.claude
+
+# v1 static site at repo root — the React app builds from frontend/ only
+assets
+index.html
