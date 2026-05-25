@@ -33,8 +33,8 @@ export default function Header() {
         transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
       >
         <div className="max-w-container mx-auto px-5 md:px-8 flex items-center justify-between py-3 md:py-3.5 gap-4 md:gap-8">
-          <a href="#top" aria-label="ETS Forever 2 — accueil" onClick={close} className="block">
-            <img src="/assets/img/logo-horizontal.svg" alt="ETS Forever 2" className="block h-9 md:h-11" />
+          <a href="#top" aria-label="ETS Forever II — accueil" onClick={close} className="block">
+            <img src="/assets/img/logo-horizontal.svg" alt="ETS Forever II" className="block h-9 md:h-11" />
           </a>
 
           <nav className="hidden md:flex gap-[26px]" aria-label="Navigation principale">

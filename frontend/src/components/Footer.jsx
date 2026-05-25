@@ -1,10 +1,10 @@
 export default function Footer() {
   const cols = [
-    { title: 'Services', links: [
-      { href: '#services', label: 'Constitution de dossiers' },
+    { title: 'Activités', links: [
       { href: '#services', label: 'Commerce général' },
-      { href: '#services', label: 'Authentifications' },
-      { href: '#services', label: 'Conseil & conformité' },
+      { href: '#services', label: 'Import-export' },
+      { href: '#services', label: 'BTP — bâtiment & TP' },
+      { href: '#services', label: 'Prestation de services' },
     ]},
     { title: 'Maison', links: [
       { href: '#pourquoi',    label: 'Notre histoire' },
@@ -26,7 +26,7 @@ export default function Footer() {
         aria-hidden="true"
         className="hidden sm:block absolute -bottom-5 left-1/2 -translate-x-1/2 font-display font-extrabold uppercase pointer-events-none whitespace-nowrap text-white/[0.04] leading-[0.9] tracking-[-0.05em] text-[clamp(80px,18vw,280px)]"
       >
-        FOREVER&nbsp;2
+        FOREVER&nbsp;II
       </div>
 
       <div className="relative z-[1] max-w-container mx-auto px-5 md:px-8">
@@ -34,9 +34,9 @@ export default function Footer() {
           <div className="flex gap-4 items-start">
             <img src="/assets/img/logo-mark-light.svg" alt="" width="60" height="60" />
             <div>
-              <h4 className="font-display text-lg font-extrabold text-white m-0 mb-2 tracking-tight">ETS FOREVER 2</h4>
+              <h4 className="font-display text-lg font-extrabold text-white m-0 mb-2 tracking-tight">ETS FOREVER II</h4>
               <p className="text-[13px] leading-[1.55] m-0 text-white/60">
-                Commerce général · Services administratifs<br/>
+                Commerce général · Import-export · BTP · Prestation de services<br/>
                 Yaoundé, Cameroun · depuis 2014.
               </p>
             </div>
@@ -64,7 +64,7 @@ export default function Footer() {
 
         <div className="relative z-[1] pt-6 flex flex-col sm:flex-row sm:justify-between sm:items-center flex-wrap gap-4">
           <p className="text-[11px] sm:text-xs m-0 text-white/55 leading-[1.6]">
-            © 2026 ETS FOREVER 2 · Yaoundé · Avec vous, pour longtemps.&nbsp;·&nbsp;Vos démarches. Notre métier.
+            © 2026 ETS FOREVER II · Yaoundé · Avec vous, pour longtemps.&nbsp;·&nbsp;Commerce, import-export &amp; BTP.
           </p>
           <div className="flex gap-3.5 sm:gap-4 flex-wrap">
             {['Mentions légales', 'Confidentialité', 'etsforever2.com'].map((l) => (
@@ -72,6 +72,10 @@ export default function Footer() {
             ))}
           </div>
         </div>
+
+        <p className="relative z-[1] mt-5 pt-5 border-t border-white/10 text-[11px] text-white/40 leading-[1.6] m-0">
+          RCCM&nbsp;RC/YAO/2015/A/1378 · Fondée en 2014, immatriculée en 2015 · Mvog-Mbi, Yaoundé, Cameroun
+        </p>
       </div>
     </footer>
   );

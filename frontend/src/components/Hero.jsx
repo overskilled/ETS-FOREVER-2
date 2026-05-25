@@ -75,10 +75,10 @@ export default function Hero() {
             variants={fadeUp}
             className="text-base md:text-lg leading-[1.55] text-ink-2 max-w-[520px] m-0 mb-6 md:mb-8"
           >
-            ETS FOREVER 2 accompagne particuliers et entreprises camerounaises
-            dans leurs démarches administratives et leurs achats du quotidien.
-            Un seul interlocuteur, des délais respectés, la même équipe
-            d'année en année.
+            ETS FOREVER II accompagne particuliers, entreprises et collectivités
+            au Cameroun : bâtiment et travaux publics, import-export, commerce
+            général et prestations de services. Un seul interlocuteur, des
+            délais respectés, la même équipe d'année en année.
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-wrap gap-3 mb-8 md:mb-12">
@@ -96,6 +96,18 @@ export default function Hero() {
               Voir nos services
             </a>
           </motion.div>
+
+          <motion.ul variants={fadeUp} className="flex flex-wrap gap-2 list-none p-0 m-0">
+            {['Commerce général', 'Import-export', 'BTP', 'Prestation de services'].map((t) => (
+              <li
+                key={t}
+                className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-ink-2 bg-surface border border-line-1 rounded-full py-1.5 px-3"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-secondary" />
+                {t}
+              </li>
+            ))}
+          </motion.ul>
 
           {/* <motion.dl
             ref={ref}

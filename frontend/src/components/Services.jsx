@@ -98,8 +98,8 @@ export default function Services() {
             Tout ce dont vous avez besoin,<br/>au même endroit.
           </h2>
           <p className="text-base md:text-[17px] leading-[1.55] text-ink-3 m-0 max-w-[560px]">
-            Du registre de commerce à la rame de papier — nous prenons en charge
-            ce qui prend du temps pour vous le rendre.
+            Du chantier à la marchandise importée — un seul partenaire pour
+            bâtir, fournir et approvisionner, sans multiplier les interlocuteurs.
           </p>
         </header>
 

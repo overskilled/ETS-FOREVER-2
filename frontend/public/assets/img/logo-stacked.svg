@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-label="ETS Forever 2">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-label="ETS Forever II">
   <g transform="translate(116, 28)">
     <rect width="128" height="128" rx="10" fill="#1F6B4B"></rect>
     <path d="M 14 30 L 14 100 L 32 100 L 32 70 L 56 70 L 56 56 L 32 56 L 32 44 L 62 44 L 62 30 Z" fill="#FFFFFF"></path>
-    <text x="64" y="100" font-family="&#39;Bricolage Grotesque&#39;, &#39;Helvetica Neue&#39;, &#39;Arial Black&#39;, system-ui, sans-serif" font-weight="900" font-size="80" fill="#E2A23B" letter-spacing="-3">2</text>
+    <text x="92" y="100" text-anchor="middle" font-family="'Bricolage Grotesque', 'Helvetica Neue', 'Arial Black', system-ui, sans-serif" font-weight="900" font-size="80" fill="#E2A23B" letter-spacing="-3">II</text>
   </g>
-  <text x="180" y="216" font-family="&#39;Bricolage Grotesque&#39;, &#39;Helvetica Neue&#39;, system-ui, sans-serif" font-weight="800" font-size="36" letter-spacing="-1.4" fill="#15201B" text-anchor="middle">ETS FOREVER<tspan fill="#E2A23B" dx="6">2</tspan></text>
-  <text x="180" y="248" font-family="&#39;Bricolage Grotesque&#39;, &#39;Helvetica Neue&#39;, system-ui, sans-serif" font-weight="600" font-size="10" letter-spacing="2.4" fill="#5B6660" text-anchor="middle">COMMERCE GÉNÉRAL · SERVICES ADMINISTRATIFS</text>
+  <text x="180" y="216" font-family="'Bricolage Grotesque', 'Helvetica Neue', system-ui, sans-serif" font-weight="800" font-size="36" letter-spacing="-1.4" fill="#15201B" text-anchor="middle">ETS FOREVER<tspan fill="#E2A23B" dx="6">II</tspan></text>
+  <text x="180" y="248" font-family="'Bricolage Grotesque', 'Helvetica Neue', system-ui, sans-serif" font-weight="600" font-size="10" letter-spacing="2.4" fill="#5B6660" text-anchor="middle">COMMERCE GÉNÉRAL · IMPORT-EXPORT · BTP</text>
 </svg>

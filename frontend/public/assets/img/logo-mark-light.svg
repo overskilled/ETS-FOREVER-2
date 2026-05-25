@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="ETS Forever 2 mark, light bg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="ETS Forever II mark, light bg">
   <rect width="128" height="128" rx="10" fill="#FFFFFF" stroke="#E5E7E3" stroke-width="1"></rect>
   <path d="M 14 30 L 14 100 L 32 100 L 32 70 L 56 70 L 56 56 L 32 56 L 32 44 L 62 44 L 62 30 Z" fill="#1F6B4B"></path>
-  <text x="64" y="100" font-family="&#39;Bricolage Grotesque&#39;, &#39;Helvetica Neue&#39;, &#39;Arial Black&#39;, system-ui, sans-serif" font-weight="900" font-size="80" fill="#E2A23B" letter-spacing="-3">2</text>
+  <text x="92" y="100" text-anchor="middle" font-family="'Bricolage Grotesque', 'Helvetica Neue', 'Arial Black', system-ui, sans-serif" font-weight="900" font-size="80" fill="#E2A23B" letter-spacing="-3">II</text>
 </svg>

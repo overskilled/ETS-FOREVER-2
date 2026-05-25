@@ -54,7 +54,7 @@ export default function Why() {
             Une maison,<br/>pas un guichet.
           </motion.h2>
           <motion.p variants={item} className="text-base leading-[1.6] text-ink-2 max-w-[520px]">
-            Depuis 2014, ETS FOREVER 2 est un point de repère à Mvog-Mbi. On nous appelle pour un dossier urgent,
+            Depuis 2014, ETS FOREVER II est un point de repère à Mvog-Mbi. On nous appelle pour un chantier, une commande ou un approvisionnement,
             et on revient pour le suivant — parce qu'on retrouve la même équipe, la même rigueur, le même accueil.
           </motion.p>
 
