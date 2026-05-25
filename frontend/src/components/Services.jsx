@@ -15,6 +15,7 @@ const spanClass = {
   feature: 'col-span-1 sm:col-span-6 lg:col-span-5 row-span-1 lg:row-span-2 flex-col sm:flex-row lg:flex-col',
   wide:    'col-span-1 sm:col-span-6 lg:col-span-7 row-span-1 flex-col sm:flex-row',
   third:   'col-span-1 sm:col-span-3 lg:col-span-4 row-span-1 flex-col',
+  banner:  'col-span-1 sm:col-span-6 lg:col-span-12 row-span-1 flex-col sm:flex-row',
 };
 
 // Media flex ratios depending on layout
@@ -22,6 +23,7 @@ const mediaClass = {
   feature: 'flex-1 sm:flex-[0_0_50%] lg:flex-[1.6_1_60%] min-h-[180px] sm:min-h-full lg:min-h-[60%]',
   wide:    'flex-1 sm:flex-[0_0_44%] min-h-[180px] sm:min-h-full',
   third:   'flex-1 min-h-[180px] sm:min-h-0',
+  banner:  'flex-1 sm:flex-[0_0_38%] min-h-[180px] sm:min-h-full',
 };
 
 // Body padding & sizing
@@ -29,18 +31,21 @@ const bodyClass = {
   feature: 'p-5 sm:px-6 sm:py-[22px] lg:px-6 lg:py-6 sm:justify-center lg:justify-start gap-2',
   wide:    'p-5 sm:px-6 sm:py-[22px] sm:justify-center gap-1.5',
   third:   'p-5 sm:p-[18px_22px_20px] gap-1.5',
+  banner:  'p-5 sm:px-7 sm:py-6 sm:justify-center gap-1.5',
 };
 
 const titleClass = {
   feature: 'text-lg sm:text-xl lg:text-2xl',
   wide:    'text-lg sm:text-xl',
   third:   'text-lg',
+  banner:  'text-lg sm:text-xl',
 };
 
 const descClampClass = {
   feature: 'line-clamp-3',
   wide:    'line-clamp-2',
   third:   'line-clamp-2',
+  banner:  'line-clamp-2',
 };
 
 function ServiceCard({ s, i }) {

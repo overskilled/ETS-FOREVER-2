@@ -42,14 +42,25 @@ export default function Contact() {
           <ul className="list-none p-0 m-0 grid gap-4">
             {[
               { icon: <><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></>, title: 'Yaoundé — Mvog-Mbi', sub: 'À 200m du marché central' },
-              { icon: <path d="M22 16.92V21a1 1 0 0 1-1.09 1A19 19 0 0 1 2 3.09 1 1 0 0 1 3 2h4.09a1 1 0 0 1 1 .75l1 4a1 1 0 0 1-.29 1L7 9a16 16 0 0 0 8 8l1.25-1.81a1 1 0 0 1 1-.29l4 1a1 1 0 0 1 .75 1z"/>, title: '+237 6 92 00 00 00', sub: 'WhatsApp disponible' },
-              { icon: <><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 7l9 6 9-6"/></>, title: 'contact@etsforever2.com', sub: 'Réponse sous 24h' },
+              { icon: <path d="M22 16.92V21a1 1 0 0 1-1.09 1A19 19 0 0 1 2 3.09 1 1 0 0 1 3 2h4.09a1 1 0 0 1 1 .75l1 4a1 1 0 0 1-.29 1L7 9a16 16 0 0 0 8 8l1.25-1.81a1 1 0 0 1 1-.29l4 1a1 1 0 0 1 .75 1z"/>, title: '+237 6 76 81 85 47', sub: 'WhatsApp disponible', href: 'https://wa.me/237676818547?text=Bonjour%20ETS%20FOREVER%20II%2C%20je%20souhaite%20un%20devis.' },
+              { icon: <><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 7l9 6 9-6"/></>, title: 'contact@etsforever2.com', sub: 'Réponse sous 24h', href: 'mailto:contact@etsforever2.com' },
               { icon: <><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></>, title: 'Lun. — Sam.', sub: '08h00 — 18h30' },
             ].map((c) => (
               <li key={c.title} className="grid grid-cols-[32px_1fr] gap-3 items-start text-brand-primary">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">{c.icon}</svg>
                 <div className="text-ink-2">
-                  <strong className="block text-ink-1 text-[15px] font-bold">{c.title}</strong>
+                  {c.href ? (
+                    <a
+                      href={c.href}
+                      target={c.href.startsWith('http') ? '_blank' : undefined}
+                      rel={c.href.startsWith('http') ? 'noreferrer' : undefined}
+                      className="block text-ink-1 text-[15px] font-bold hover:text-brand-primary transition-colors"
+                    >
+                      {c.title}
+                    </a>
+                  ) : (
+                    <strong className="block text-ink-1 text-[15px] font-bold">{c.title}</strong>
+                  )}
                   <span className="block text-[13px] text-ink-3 mt-0.5">{c.sub}</span>
                 </div>
               </li>
@@ -100,7 +111,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <label htmlFor="c-phone" className="block text-xs font-bold text-ink-2 mb-1.5 tracking-[0.02em]">Téléphone</label>
-                    <input id="c-phone" required value={form.phone} onChange={update('phone')} placeholder="+237 6 92 …" className={inputClass} />
+                    <input id="c-phone" required value={form.phone} onChange={update('phone')} placeholder="+237 6 76 …" className={inputClass} />
                   </div>
                 </div>
                 <div className="mb-4">

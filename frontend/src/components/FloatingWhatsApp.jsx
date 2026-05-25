@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 export default function FloatingWhatsApp() {
   return (
     <motion.a
-      href="https://wa.me/237692000000"
+      href="https://wa.me/237676818547?text=Bonjour%20ETS%20FOREVER%20II%2C%20je%20souhaite%20un%20devis."
       target="_blank"
       rel="noreferrer"
       aria-label="Discuter sur WhatsApp"

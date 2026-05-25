@@ -4,6 +4,7 @@ export default function Footer() {
       { href: '#services', label: 'Commerce général' },
       { href: '#services', label: 'Import-export' },
       { href: '#services', label: 'BTP — bâtiment & TP' },
+      { href: '#services', label: 'Santé & pharmacie' },
       { href: '#services', label: 'Prestation de services' },
     ]},
     { title: 'Maison', links: [
@@ -13,7 +14,7 @@ export default function Footer() {
       { href: '#contact',     label: 'Nous trouver' },
     ]},
     { title: 'Contact', links: [
-      { href: 'tel:+237692000000',           label: '+237 6 92 00 00 00' },
+      { href: 'tel:+237676818547',           label: '+237 6 76 81 85 47' },
       { href: 'mailto:contact@etsforever2.com', label: 'contact@etsforever2.com' },
       { href: '#contact', label: 'Mvog-Mbi, Yaoundé' },
       { href: '#contact', label: 'Lun. — Sam. · 08h — 18h30' },
@@ -36,7 +37,7 @@ export default function Footer() {
             <div>
               <h4 className="font-display text-lg font-extrabold text-white m-0 mb-2 tracking-tight">ETS FOREVER II</h4>
               <p className="text-[13px] leading-[1.55] m-0 text-white/60">
-                Commerce général · Import-export · BTP · Prestation de services<br/>
+                Commerce général · Import-export · BTP · Santé · Prestation de services<br/>
                 Yaoundé, Cameroun · depuis 2014.
               </p>
             </div>

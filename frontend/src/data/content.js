@@ -17,6 +17,7 @@ export const PHOTOS = {
   service_prestation:  "/rdv.jpeg",      // rendez-vous d'affaires
   service_fourniture:  "/commerce.jpg",  // marchandises en rayon
   service_appro:       "/16.jpg",        // colis / logistique
+  service_pharma:      unsplash('photo-1587854692152-cbe660dbde88', 900), // pharmacie / médical (placeholder)
 };
 
 export const STATS = [
@@ -82,6 +83,14 @@ export const SERVICES = [
     price: 'livraison incluse',
     span: 'third',
   },
+  {
+    img: PHOTOS.service_pharma,
+    tag: 'Médical',
+    title: 'Santé & produits pharmaceutiques',
+    desc: "Approvisionnement et distribution de produits pharmaceutiques, consommables et matériel médical, encadrés par une expertise en sciences pharmaceutiques.",
+    price: 'sur devis',
+    span: 'banner',   // bento: pleine largeur (12 cols)
+  },
 ];
 
 export const WHY_POINTS = [
@@ -134,5 +143,5 @@ export const QUOTES = [
 export const MARQUEE_WORDS = [
   'Mvog-Mbi', 'Yaoundé', 'Bastos', 'Mbalmayo', 'Bafoussam', 'Douala',
   'Commerce général', 'Import-export', 'BTP', 'Travaux publics',
-  'Matériaux', 'Prestation de services',
+  'Matériaux', 'Prestation de services', 'Produits pharmaceutiques', 'Santé',
 ];
