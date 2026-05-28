@@ -52,7 +52,7 @@ export default function Hero() {
             variants={fadeUp}
             className="inline-block font-body text-[11px] font-extrabold tracking-wider2 uppercase text-brand-primary mb-4"
           >
-            Établissement · depuis 2014
+            Établissement Forever2 · depuis 2014
           </motion.span>
 
           <h1 className="font-display font-extrabold uppercase text-ink-1 m-0 mb-4 md:mb-6 text-hero text-balance leading-[1.08]" aria-label="Bâtir pour durer.">
@@ -75,7 +75,7 @@ export default function Hero() {
             variants={fadeUp}
             className="text-base md:text-lg leading-[1.55] text-ink-2 max-w-[520px] m-0 mb-6 md:mb-8"
           >
-            ETS FOREVER II accompagne particuliers, entreprises et collectivités
+            ETS FOREVER 2 accompagne particuliers, entreprises et collectivités
             au Cameroun : bâtiment et travaux publics, import-export, commerce
             général, produits pharmaceutiques et prestations de services. Un seul
             interlocuteur, des délais respectés, la même équipe d'année en année.

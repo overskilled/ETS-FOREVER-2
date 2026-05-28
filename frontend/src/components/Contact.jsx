@@ -42,7 +42,7 @@ export default function Contact() {
           <ul className="list-none p-0 m-0 grid gap-4">
             {[
               { icon: <><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></>, title: 'Yaoundé — Mvog-Mbi', sub: 'À 200m du marché central' },
-              { icon: <path d="M22 16.92V21a1 1 0 0 1-1.09 1A19 19 0 0 1 2 3.09 1 1 0 0 1 3 2h4.09a1 1 0 0 1 1 .75l1 4a1 1 0 0 1-.29 1L7 9a16 16 0 0 0 8 8l1.25-1.81a1 1 0 0 1 1-.29l4 1a1 1 0 0 1 .75 1z"/>, title: '+237 6 76 81 85 47', sub: 'WhatsApp disponible', href: 'https://wa.me/237676818547?text=Bonjour%20ETS%20FOREVER%20II%2C%20je%20souhaite%20un%20devis.' },
+              { icon: <path d="M22 16.92V21a1 1 0 0 1-1.09 1A19 19 0 0 1 2 3.09 1 1 0 0 1 3 2h4.09a1 1 0 0 1 1 .75l1 4a1 1 0 0 1-.29 1L7 9a16 16 0 0 0 8 8l1.25-1.81a1 1 0 0 1 1-.29l4 1a1 1 0 0 1 .75 1z"/>, title: '+237 6 76 81 85 47', sub: 'WhatsApp disponible', href: 'https://wa.me/237676818547?text=Bonjour%20ETS%20FOREVER%202%2C%20je%20souhaite%20un%20devis.' },
               { icon: <><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 7l9 6 9-6"/></>, title: 'contact@etsforever2.com', sub: 'Réponse sous 24h', href: 'mailto:contact@etsforever2.com' },
               { icon: <><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></>, title: 'Lun. — Sam.', sub: '08h00 — 18h30' },
             ].map((c) => (

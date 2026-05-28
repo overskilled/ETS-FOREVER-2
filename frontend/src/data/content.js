@@ -115,7 +115,7 @@ export const QUOTES = [
     city: 'Yaoundé',
   },
   {
-    quote: "Commande importée et dédouanée en quelques semaines, livrée à l'atelier. J'ai recommandé toute mon équipe à ETS FOREVER II.",
+    quote: "Commande importée et dédouanée en quelques semaines, livrée à l'atelier. J'ai recommandé toute mon équipe à ETS FOREVER 2.",
     name: 'Emmanuel Biya',
     role: 'Entrepreneur · Import',
     city: 'Bastos',

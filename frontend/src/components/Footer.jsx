@@ -27,16 +27,19 @@ export default function Footer() {
         aria-hidden="true"
         className="hidden sm:block absolute -bottom-5 left-1/2 -translate-x-1/2 font-display font-extrabold uppercase pointer-events-none whitespace-nowrap text-white/[0.04] leading-[0.9] tracking-[-0.05em] text-[clamp(80px,18vw,280px)]"
       >
-        FOREVER&nbsp;II
+        FOREVER&nbsp;2
       </div>
 
       <div className="relative z-[1] max-w-container mx-auto px-5 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-[1.3fr_2fr] gap-10 md:gap-16 items-start pb-12 border-b border-white/10">
           <div className="flex gap-4 items-start">
-            <img src="/assets/img/logo-mark-light.svg" alt="" width="60" height="60" />
+            <div className="bg-white rounded-lg p-1.5 shrink-0">
+              <img src="/assets/img/logo.png" alt="ETS Forever 2" className="block h-12 w-auto" />
+            </div>
             <div>
-              <h4 className="font-display text-lg font-extrabold text-white m-0 mb-2 tracking-tight">ETS FOREVER II</h4>
+              <h4 className="font-display text-lg font-extrabold text-white m-0 mb-2 tracking-tight">ETS FOREVER 2</h4>
               <p className="text-[13px] leading-[1.55] m-0 text-white/60">
+                Établissement Forever2 — également connu sous le nom ETS Forever2.<br/>
                 Commerce général · Import-export · BTP · Santé · Prestation de services<br/>
                 Yaoundé, Cameroun · depuis 2014.
               </p>
@@ -65,7 +68,7 @@ export default function Footer() {
 
         <div className="relative z-[1] pt-6 flex flex-col sm:flex-row sm:justify-between sm:items-center flex-wrap gap-4">
           <p className="text-[11px] sm:text-xs m-0 text-white/55 leading-[1.6]">
-            © 2026 ETS FOREVER II · Yaoundé · Avec vous, pour longtemps.&nbsp;·&nbsp;Commerce, import-export &amp; BTP.
+            © 2026 ETS FOREVER 2 · Yaoundé · Avec vous, pour longtemps.&nbsp;·&nbsp;Commerce, import-export &amp; BTP.
           </p>
           <div className="flex gap-3.5 sm:gap-4 flex-wrap">
             {['Mentions légales', 'Confidentialité', 'etsforever2.com'].map((l) => (
