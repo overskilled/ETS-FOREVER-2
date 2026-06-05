@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { NAV } from '../data/content';
 
 export default function Header() {
@@ -33,9 +34,9 @@ export default function Header() {
         transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
       >
         <div className="max-w-container mx-auto px-5 md:px-8 flex items-center justify-between py-3 md:py-3.5 gap-4 md:gap-8">
-          <a href="#top" aria-label="ETS Forever 2 — accueil" onClick={close} className="block">
+          <Link to="/" aria-label="ETS Forever 2 — accueil" onClick={close} className="block">
             <img src="/assets/img/logo.png" alt="ETS Forever 2" className="block h-11 md:h-14 w-auto" />
-          </a>
+          </Link>
 
           <nav className="hidden md:flex gap-[26px]" aria-label="Navigation principale">
             {NAV.map((item) => (
@@ -50,7 +51,7 @@ export default function Header() {
           </nav>
 
           <a
-            href="#contact"
+            href="/#contact"
             className="hidden md:inline-flex items-center gap-2 bg-brand-primary text-white font-bold text-[13px] py-2.5 px-4 rounded-sm shadow-cta transition hover:bg-brand-primary-deep hover:shadow-cta-hover hover:text-white hover:-translate-y-px active:translate-y-px"
           >
             Demander un devis
@@ -103,7 +104,7 @@ export default function Header() {
                 </motion.a>
               ))}
               <motion.a
-                href="#contact"
+                href="/#contact"
                 onClick={close}
                 className="mt-3 w-full inline-flex items-center justify-center bg-brand-primary text-white font-bold text-[15px] py-4 rounded-md shadow-cta transition hover:bg-brand-primary-deep hover:text-white"
                 initial={{ y: 16, opacity: 0 }}

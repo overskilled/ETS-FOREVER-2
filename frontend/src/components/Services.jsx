@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { SERVICES } from '../data/content';
 
 const cardVariants = {
@@ -57,6 +58,11 @@ function ServiceCard({ s, i }) {
       transition={{ type: 'spring', stiffness: 280, damping: 22 }}
       className={`group bg-white border border-line-1 rounded-2xl overflow-hidden flex min-w-0 relative transition-[box-shadow,border-color] duration-200 ease-out hover:shadow-lift hover:border-transparent will-change-transform ${spanClass[s.span]}`}
     >
+      <Link
+        to={`/activites/${s.slug}`}
+        aria-label={`En savoir plus sur ${s.title}`}
+        className="absolute inset-0 z-[2]"
+      />
       <div className={`relative overflow-hidden bg-inset min-w-0 ${mediaClass[s.span]}`}>
         <img
           src={s.img}
@@ -77,14 +83,10 @@ function ServiceCard({ s, i }) {
         </p>
         <div className="flex justify-between items-center mt-auto pt-3 border-t border-line-2 text-[13px]">
           <span className="text-ink-1 font-bold">{s.price}</span>
-          <a
-            href="#contact"
-            data-cursor="hover"
-            className="text-brand-primary font-bold inline-flex items-center gap-1 transition-[gap] duration-150 ease-out hover:gap-2"
-          >
+          <span className="text-brand-primary font-bold inline-flex items-center gap-1 transition-[gap] duration-150 ease-out group-hover:gap-2">
             En savoir plus
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          </span>
         </div>
       </div>
     </motion.article>

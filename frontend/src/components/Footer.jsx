@@ -1,23 +1,24 @@
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
   const cols = [
     { title: 'Activités', links: [
-      { href: '#services', label: 'Commerce général' },
-      { href: '#services', label: 'Import-export' },
-      { href: '#services', label: 'BTP — bâtiment & TP' },
-      { href: '#services', label: 'Santé & pharmacie' },
-      { href: '#services', label: 'Prestation de services' },
+      { to: '/activites/commerce',      label: 'Commerce général' },
+      { to: '/activites/import-export', label: 'Import-export' },
+      { to: '/activites/btp',           label: 'BTP — bâtiment & TP' },
+      { to: '/activites/sante',         label: 'Santé & pharmacie' },
+      { to: '/activites/services',      label: 'Prestation de services' },
     ]},
     { title: 'Maison', links: [
-      { href: '#pourquoi',    label: 'Notre histoire' },
-      { href: '#process',     label: 'Notre méthode' },
-      { href: '#temoignages', label: 'Témoignages' },
-      { href: '#contact',     label: 'Nous trouver' },
+      { href: '/#pourquoi', label: 'Notre histoire' },
+      { href: '/#process',  label: 'Notre méthode' },
+      { href: '/#contact',  label: 'Nous trouver' },
     ]},
     { title: 'Contact', links: [
-      { href: 'tel:+237676818547',           label: '+237 6 76 81 85 47' },
+      { href: 'tel:+237676818547',              label: '+237 6 76 81 85 47' },
       { href: 'mailto:contact@etsforever2.com', label: 'contact@etsforever2.com' },
-      { href: '#contact', label: 'Mvog-Mbi, Yaoundé' },
-      { href: '#contact', label: 'Lun. — Sam. · 08h — 18h30' },
+      { href: '/#contact', label: 'Mvog-Mbi, Yaoundé' },
+      { href: '/#contact', label: 'Lun. — Sam. · 08h — 18h30' },
     ]},
   ];
 
@@ -52,7 +53,15 @@ export default function Footer() {
                 <h5 className="font-body text-[11px] font-extrabold text-brand-secondary tracking-[0.16em] uppercase m-0 mb-4">
                   {c.title}
                 </h5>
-                {c.links.map((l) => (
+                {c.links.map((l) => l.to ? (
+                  <Link
+                    key={l.label}
+                    to={l.to}
+                    className="block py-1 text-[13px] text-white/70 hover:text-white transition-colors duration-150"
+                  >
+                    {l.label}
+                  </Link>
+                ) : (
                   <a
                     key={l.label}
                     href={l.href}

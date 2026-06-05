@@ -1,5 +1,6 @@
 import { Fragment, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { PHOTOS, STATS } from '../data/content';
 import { useCountUp } from '../hooks/useCountUp';
 
@@ -98,13 +99,21 @@ export default function Hero() {
           </motion.div>
 
           <motion.ul variants={fadeUp} className="flex flex-wrap gap-2 list-none p-0 m-0">
-            {['Commerce général', 'Import-export', 'BTP', 'Santé & pharmacie', 'Prestation de services'].map((t) => (
-              <li
-                key={t}
-                className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-ink-2 bg-surface border border-line-1 rounded-full py-1.5 px-3"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-secondary" />
-                {t}
+            {[
+              { label: 'Commerce général',       slug: 'commerce' },
+              { label: 'Import-export',          slug: 'import-export' },
+              { label: 'BTP',                    slug: 'btp' },
+              { label: 'Santé & pharmacie',      slug: 'sante' },
+              { label: 'Prestation de services', slug: 'services' },
+            ].map(({ label, slug }) => (
+              <li key={slug}>
+                <Link
+                  to={`/activites/${slug}`}
+                  className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-ink-2 bg-surface border border-line-1 rounded-full py-1.5 px-3 transition-colors hover:border-brand-primary hover:text-brand-primary"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-secondary" />
+                  {label}
+                </Link>
               </li>
             ))}
           </motion.ul>

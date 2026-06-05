@@ -26,12 +26,13 @@ export const STATS = [
   { value: 12, suffix: ' ans', label: "D'expérience\nà Yaoundé" },
 ];
 
+// NAV hrefs use the `/#hash` form so they work on inner pages too
+// (browser navigates to `/` then scrolls to the anchor).
 export const NAV = [
-  { href: '#services',     label: 'Activités' },
-  { href: '#pourquoi',     label: 'Pourquoi nous' },
-  { href: '#process',      label: 'Notre méthode' },
-  { href: '#temoignages',  label: 'Témoignages' },
-  { href: '#contact',      label: 'Contact' },
+  { href: '/#services',  label: 'Activités' },
+  { href: '/#pourquoi',  label: 'Pourquoi nous' },
+  { href: '/#process',   label: 'Notre méthode' },
+  { href: '/#contact',   label: 'Contact' },
 ];
 
 export const SERVICES = [
@@ -39,6 +40,7 @@ export const SERVICES = [
     img: PHOTOS.service_commerce,
     tag: 'Gros & détail',
     title: 'Commerce général',
+    slug: 'commerce',
     desc: 'Vente et distribution de marchandises, en gros comme au détail, pour foyers, commerces et collectivités.',
     price: 'prix grossiste',
     span: 'feature',  // bento: 5 cols × 2 rows (tall feature)
@@ -47,6 +49,7 @@ export const SERVICES = [
     img: PHOTOS.service_import,
     tag: 'International',
     title: 'Import-export',
+    slug: 'import-export',
     desc: "Sourcing à l'international, dédouanement et acheminement. Vos marchandises de l'usine jusqu'à votre porte.",
     price: 'sur devis',
     span: 'wide',     // bento: 7 cols × 1 row (horizontal)
@@ -55,6 +58,7 @@ export const SERVICES = [
     img: PHOTOS.service_btp,
     tag: 'Bâtiment & TP',
     title: 'BTP — bâtiment & travaux publics',
+    slug: 'btp',
     desc: 'Construction, rénovation, gros et second œuvre, voirie. Des chantiers menés dans les règles, livrés dans les délais.',
     price: 'sur étude',
     span: 'wide',     // bento: 7 cols × 1 row (horizontal)
@@ -63,6 +67,7 @@ export const SERVICES = [
     img: PHOTOS.service_prestation,
     tag: 'Sur mesure',
     title: 'Prestation de services',
+    slug: 'services',
     desc: "Des services aux entreprises et aux particuliers, pensés sur mesure et exécutés par une équipe qui répond.",
     price: 'sur devis',
     span: 'third',    // bento: 4 cols × 1 row
@@ -71,6 +76,7 @@ export const SERVICES = [
     img: PHOTOS.service_fourniture,
     tag: 'Équipement',
     title: 'Fournitures & équipements',
+    slug: 'commerce',
     desc: 'Matériaux, outillage et équipements pour vos chantiers, vos bureaux et vos points de vente.',
     price: 'devis gratuit',
     span: 'third',
@@ -79,6 +85,7 @@ export const SERVICES = [
     img: PHOTOS.service_appro,
     tag: 'Logistique',
     title: 'Approvisionnement & logistique',
+    slug: 'services',
     desc: "Commandes groupées, livraison sur chantier ou en boutique, suivi jusqu'à la réception.",
     price: 'livraison incluse',
     span: 'third',
@@ -87,6 +94,7 @@ export const SERVICES = [
     img: PHOTOS.service_pharma,
     tag: 'Médical',
     title: 'Santé & produits pharmaceutiques',
+    slug: 'sante',
     desc: "Approvisionnement et distribution de produits pharmaceutiques, consommables et matériel médical, encadrés par une expertise en sciences pharmaceutiques.",
     price: 'sur devis',
     span: 'banner',   // bento: pleine largeur (12 cols)
