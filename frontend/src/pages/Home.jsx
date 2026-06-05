@@ -4,6 +4,7 @@ import Services from '../components/Services';
 import RealisationsHighlight from '../components/RealisationsHighlight';
 import Why from '../components/Why';
 import Process from '../components/Process';
+import NewsHighlight from '../components/NewsHighlight';
 import Contact from '../components/Contact';
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <Why />
       <Process />
       {/* <Testimonials /> */}
+      <NewsHighlight />
       <Contact />
     </main>
   );

@@ -30,11 +30,11 @@ export const STATS = [
 // for hash anchors. Hash hrefs use `/#hash` so they work cross-page
 // (browser navigates to `/` then scrolls to the anchor).
 export const NAV = [
-  { href: '/#services',   label: 'Activités' },
+  { href: '/#services',    label: 'Activités' },
   { to:   '/realisations', label: 'Réalisations' },
-  { href: '/#pourquoi',   label: 'Pourquoi nous' },
-  { href: '/#process',    label: 'Notre méthode' },
-  { href: '/#contact',    label: 'Contact' },
+  { to:   '/actualites',   label: 'Actualités' },
+  { href: '/#pourquoi',    label: 'Pourquoi nous' },
+  { href: '/#contact',     label: 'Contact' },
 ];
 
 export const SERVICES = [

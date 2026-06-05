@@ -11,6 +11,7 @@ export default function Footer() {
     ]},
     { title: 'Maison', links: [
       { to:   '/realisations', label: 'Réalisations' },
+      { to:   '/actualites',   label: 'Actualités' },
       { href: '/#pourquoi',    label: 'Notre histoire' },
       { href: '/#process',     label: 'Notre méthode' },
       { href: '/#contact',     label: 'Nous trouver' },

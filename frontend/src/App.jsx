@@ -10,6 +10,8 @@ import Home from './pages/Home';
 import ActivityDetail from './pages/ActivityDetail';
 import Realisations from './pages/Realisations';
 import ProjectDetail from './pages/ProjectDetail';
+import Actualites from './pages/Actualites';
+import NewsDetail from './pages/NewsDetail';
 
 export default function App() {
   return (
@@ -24,6 +26,8 @@ export default function App() {
         <Route path="/activites/:slug" element={<ActivityDetail />} />
         <Route path="/realisations" element={<Realisations />} />
         <Route path="/realisations/:slug" element={<ProjectDetail />} />
+        <Route path="/actualites" element={<Actualites />} />
+        <Route path="/actualites/:slug" element={<NewsDetail />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
