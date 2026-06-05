@@ -1,159 +1,93 @@
-import { Fragment, useRef } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { PHOTOS, STATS } from '../data/content';
-import { useCountUp } from '../hooks/useCountUp';
+import { motion } from 'framer-motion';
+import { PHOTOS } from '../data/content';
 
-const titleWords = [
-  { text: 'Bâtir' },
-  { text: 'pour' },
-  { text: 'durer.', accent: true },
-];
-
-const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } } };
 const fadeUp = {
   hidden: { y: 24, opacity: 0 },
   show:   { y: 0,  opacity: 1, transition: { duration: 0.7, ease: [0.2, 0.8, 0.2, 1] } },
 };
-const wordReveal = {
-  hidden: { y: '110%', opacity: 0 },
-  show:   { y: '0%',   opacity: 1, transition: { duration: 0.8, ease: [0.2, 0.8, 0.2, 1] } },
-};
-
-function Stat({ value, suffix, label, start }) {
-  const n = useCountUp(value, { start, duration: 1400 });
-  const display = value >= 1000 ? n.toLocaleString('fr-FR').replace(/,/g, ' ') : n;
-  return (
-    <motion.div variants={fadeUp} className="flex flex-col">
-      <dt className="font-display text-2xl sm:text-[26px] md:text-[32px] font-extrabold text-ink-1 tracking-tight leading-none mb-1.5">
-        {display}{suffix}
-      </dt>
-      <dd className="text-xs leading-snug text-ink-3 m-0">
-        {label.split('\n').map((line, i) => <span key={i}>{line}<br/></span>)}
-      </dd>
-    </motion.div>
-  );
-}
+const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } } };
 
 export default function Hero() {
-  const ref = useRef(null);
-  const photoRef = useRef(null);
-  const statsInView = useInView(ref, { once: true, amount: 0.3 });
-
-  const { scrollYProgress } = useScroll({ target: photoRef, offset: ['start end', 'end start'] });
-  const photoY = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
-
   return (
-    <section id="top" className="relative overflow-hidden bg-white pt-10 sm:pt-14 md:pt-24 pb-8 sm:pb-10 md:pb-20">
-      <div className="absolute -top-[120px] -right-[120px] w-[420px] h-[420px] rounded-full pointer-events-none bg-[radial-gradient(circle,_theme(colors.brand.primary-soft)_0%,_transparent_70%)]" />
-
-      <div className="relative max-w-container mx-auto px-5 md:px-8 grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-10 md:gap-20 items-center">
-        <motion.div variants={stagger} initial="hidden" animate="show">
-          <motion.span
-            variants={fadeUp}
-            className="inline-block font-body text-[11px] font-extrabold tracking-wider2 uppercase text-brand-primary mb-4"
-          >
-            Établissement Forever2 · depuis 2014
-          </motion.span>
-
-          <h1 className="font-display font-extrabold uppercase text-ink-1 m-0 mb-4 md:mb-6 text-hero text-balance leading-[1.08]" aria-label="Bâtir pour durer.">
-            {titleWords.map((w, i) => (
-              <Fragment key={i}>
-                <span className="inline-block overflow-hidden align-bottom pb-[0.08em]">
-                  <motion.span
-                    variants={wordReveal}
-                    className={`inline-block will-change-transform ${w.accent ? 'text-brand-secondary' : ''}`}
-                  >
-                    {w.text}
-                  </motion.span>
-                </span>
-                {i === 0 ? <br/> : i < titleWords.length - 1 ? ' ' : null}
-              </Fragment>
-            ))}
-          </h1>
-
-          <motion.p
-            variants={fadeUp}
-            className="text-base md:text-lg leading-[1.55] text-ink-2 max-w-[520px] m-0 mb-6 md:mb-8"
-          >
-            ETABLISSEMENT FOREVER 2 accompagne particuliers, entreprises et collectivités
-            au Cameroun : bâtiment et travaux publics, import-export, commerce
-            général, produits pharmaceutiques et prestations de services. Un seul
-            interlocuteur, des délais respectés, la même équipe d'année en année.
-          </motion.p>
-
-          <motion.div variants={fadeUp} className="flex flex-wrap gap-3 mb-8 md:mb-12">
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-brand-primary text-white font-bold text-[15px] py-3.5 px-5 rounded-md shadow-cta transition hover:bg-brand-primary-deep hover:shadow-cta-hover hover:text-white hover:-translate-y-px active:translate-y-px"
-            >
-              Demander un devis
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a
-              href="#services"
-              className="inline-flex items-center justify-center w-full sm:w-auto bg-white text-ink-1 font-bold text-[15px] py-3.5 px-5 rounded-md border-[1.5px] border-line-1 transition hover:border-brand-primary hover:text-brand-primary-deep hover:bg-surface"
-            >
-              Voir nos services
-            </a>
-          </motion.div>
-
-          <motion.ul variants={fadeUp} className="flex flex-wrap gap-2 list-none p-0 m-0">
-            {[
-              { label: 'Commerce général',       slug: 'commerce' },
-              { label: 'Import-export',          slug: 'import-export' },
-              { label: 'BTP',                    slug: 'btp' },
-              { label: 'Santé & pharmacie',      slug: 'sante' },
-              { label: 'Prestation de services', slug: 'services' },
-            ].map(({ label, slug }) => (
-              <li key={slug}>
-                <Link
-                  to={`/activites/${slug}`}
-                  className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-ink-2 bg-surface border border-line-1 rounded-full py-1.5 px-3 transition-colors hover:border-brand-primary hover:text-brand-primary"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-secondary" />
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </motion.ul>
-
-          {/* <motion.dl
-            ref={ref}
-            variants={stagger}
-            initial="hidden"
-            animate={statsInView ? 'show' : 'hidden'}
-            className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4 md:gap-8 pt-6 md:pt-7 border-t border-line-1 m-0"
-          >
-            {STATS.map((s, i) => (
-              <div key={s.label} className={i === 2 ? 'col-span-2 sm:col-span-1' : ''}>
-                <Stat {...s} start={statsInView} />
-              </div>
-            ))}
-          </motion.dl> */}
-        </motion.div>
-
-        <motion.aside
-          ref={photoRef}
-          className="relative aspect-[4/3] md:aspect-[4/5] max-h-[480px] md:max-h-none rounded-[18px] overflow-hidden bg-brand-primary will-change-transform"
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, ease: [0.2, 0.8, 0.2, 1], delay: 0.2 }}
+    <section id="top" className="bg-white pt-4 sm:pt-6 md:pt-8 pb-10 md:pb-14">
+      <div className="max-w-container mx-auto px-3 sm:px-4 md:px-5">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          animate="show"
+          className="relative rounded-[24px] sm:rounded-[28px] md:rounded-[36px] overflow-hidden bg-ink-1 min-h-[560px] sm:min-h-[620px] md:min-h-[700px] lg:min-h-[760px]"
         >
-          <motion.img
-            className="w-full h-[112%] md:h-[115%] object-cover block brightness-[0.92] saturate-[1.05] will-change-transform"
+          <img
             src={PHOTOS.hero}
             alt="ETS FOREVER 2 — entrepôt de commerce général et distribution à Yaoundé"
             loading="eager"
             fetchpriority="high"
             decoding="async"
-            style={{ y: photoY }}
+            className="absolute inset-0 w-full h-full object-cover"
           />
-          {/* <div className="hero__overlay">
-            <span className="hero__overlay-tag">Mvog-Mbi · Yaoundé</span>
-            <p>« Un commerce, un service, une parole. »</p>
-          </div> */}
-        </motion.aside>
+
+          {/* Layered gradients for legibility over a busy photo */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-black/10" />
+
+          {/* Top-left: live-pulse tagline badge */}
+          <motion.div
+            variants={fadeUp}
+            className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 z-10"
+          >
+            <span className="inline-flex items-center gap-2 bg-white/12 backdrop-blur-md text-white text-[10px] sm:text-[11px] font-extrabold tracking-wider2 uppercase py-2 px-3.5 rounded-full border border-white/20">
+              <span className="relative inline-flex">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-secondary" />
+                <span className="absolute inset-0 w-1.5 h-1.5 rounded-full bg-brand-secondary animate-ping2" />
+              </span>
+              Établissement Forever2 · depuis 2014
+            </span>
+          </motion.div>
+
+          {/* Bottom content row */}
+          <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8 md:p-12 lg:p-14">
+            <div className="grid grid-cols-1 md:grid-cols-[1.5fr_auto] items-end gap-8 md:gap-10">
+              <motion.div variants={fadeUp}>
+                <h1 className="font-display font-extrabold text-white text-balance leading-[1.02] tracking-tightest text-[clamp(40px,7.2vw,92px)] m-0 mb-4 md:mb-5">
+                  Bâtir pour durer.
+                </h1>
+                <p className="text-white/85 text-[15px] sm:text-base md:text-lg leading-[1.55] m-0 mb-6 md:mb-8 max-w-[560px]">
+                  Bâtiment & travaux publics, import-export, commerce général,
+                  santé et services. Un seul interlocuteur, des délais respectés,
+                  la même équipe d'année en année.
+                </p>
+                <a
+                  href="#contact"
+                  className="group inline-flex items-center gap-3 bg-white text-ink-1 font-bold text-[14px] sm:text-[15px] py-2 pl-5 pr-2 rounded-full transition-colors hover:bg-brand-secondary"
+                >
+                  Demander un devis
+                  <span className="w-9 h-9 grid place-items-center bg-brand-primary text-white rounded-full transition-transform group-hover:translate-x-0.5">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </a>
+              </motion.div>
+
+              {/* Floating "Devis sous 24h" badge — Steevlp-style sticker */}
+              <motion.a
+                variants={fadeUp}
+                href="#contact"
+                aria-label="Devis sous 24h — descendre vers le formulaire de contact"
+                className="hidden md:inline-grid place-items-center w-32 h-32 lg:w-36 lg:h-36 self-end text-white text-center rounded-full border border-white/30 bg-white/10 backdrop-blur-md hover:bg-white/20 transition-colors group"
+              >
+                <div className="leading-tight">
+                  <div className="text-[10px] lg:text-[11px] font-extrabold tracking-wider2 uppercase opacity-90">Devis sous</div>
+                  <div className="font-display font-extrabold text-[28px] lg:text-[34px] tracking-tightest -mt-0.5">24h</div>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto mt-1 transition-transform group-hover:translate-y-0.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                </div>
+              </motion.a>
+            </div>
+          </div>
+
+          {/* Bottom-right subtle activity counter (Steevlp "/01/05" indicator vibe) */}
+          <div className="absolute bottom-5 right-5 md:hidden text-[11px] font-bold tracking-wider2 uppercase text-white/70">
+            5 activités
+          </div>
+        </motion.div>
       </div>
     </section>
   );
