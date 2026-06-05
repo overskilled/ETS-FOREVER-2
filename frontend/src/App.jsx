@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollProgress from './components/ScrollProgress';
@@ -13,9 +13,11 @@ import ProjectDetail from './pages/ProjectDetail';
 import Actualites from './pages/Actualites';
 import NewsDetail from './pages/NewsDetail';
 
+// Router-free shell. main.jsx (client) wraps this in BrowserRouter;
+// entry-server.jsx (build-time SSR) wraps it in StaticRouter.
 export default function App() {
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <ScrollProgress />
       <CursorFollower />
@@ -32,6 +34,6 @@ export default function App() {
       </Routes>
       <Footer />
       <FloatingWhatsApp />
-    </BrowserRouter>
+    </>
   );
 }

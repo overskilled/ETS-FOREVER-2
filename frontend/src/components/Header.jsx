@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { NAV } from '../data/content';
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
