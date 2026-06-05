@@ -1,12 +1,12 @@
-import { useEffect } from 'react';
 import { Navigate, useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ACTIVITIES } from '../data/activities';
 import PageHero from '../components/PageHero';
 import FAQ from '../components/FAQ';
 import CTABanner from '../components/CTABanner';
-
-const DEFAULT_TITLE = 'ETS FOREVER 2 — Commerce général, import-export & BTP · Yaoundé';
+import Seo from '../components/Seo';
+import { breadcrumbSchema, serviceSchema, faqPageSchema } from '../lib/jsonld';
+import { SITE_URL } from '../lib/seo';
 
 const fadeUp = {
   hidden: { y: 24, opacity: 0 },
@@ -65,7 +65,7 @@ function RelatedCard({ slug }) {
       className="group block bg-white border border-line-1 rounded-2xl overflow-hidden transition-[box-shadow,border-color] duration-200 hover:shadow-lift hover:border-transparent"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-inset">
-        <img src={a.img} alt="" loading="lazy" className="w-full h-full object-cover block transition-transform duration-[600ms] ease-out group-hover:scale-[1.06]" />
+        <img src={a.img} alt={`${a.title} — activité ETS FOREVER 2`} loading="lazy" decoding="async" className="w-full h-full object-cover block transition-transform duration-[600ms] ease-out group-hover:scale-[1.06]" />
         <span className="absolute top-3.5 left-3.5 bg-white/95 text-brand-primary-deep py-[5px] px-[11px] rounded-sm text-[10px] font-extrabold tracking-wider uppercase backdrop-blur-[6px]">
           {a.tag}
         </span>
@@ -86,16 +86,31 @@ export default function ActivityDetail() {
   const { slug } = useParams();
   const activity = ACTIVITIES[slug];
 
-  useEffect(() => {
-    if (!activity) return;
-    document.title = `${activity.title} — ETS FOREVER 2`;
-    return () => { document.title = DEFAULT_TITLE; };
-  }, [activity]);
-
   if (!activity) return <Navigate to="/" replace />;
 
   return (
     <>
+      <Seo
+        title={activity.title}
+        description={activity.short}
+        path={`/activites/${activity.slug}`}
+        image={activity.img}
+        imageAlt={`${activity.title} — ETS FOREVER 2`}
+        jsonld={[
+          breadcrumbSchema([
+            { name: 'Accueil',       url: `${SITE_URL}/` },
+            { name: 'Nos activités', url: `${SITE_URL}/#services` },
+            { name: activity.title },
+          ]),
+          serviceSchema({
+            slug: activity.slug,
+            name: activity.title,
+            description: activity.short,
+            image: activity.img,
+          }),
+          faqPageSchema(activity.faq),
+        ]}
+      />
       <PageHero
         eyebrow={activity.tag}
         title={activity.title}

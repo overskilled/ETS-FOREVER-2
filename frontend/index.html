@@ -3,11 +3,35 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Fallback meta — react-helmet-async overrides these per route once JS runs.
+     Crawlers that don't execute JS will see the homepage values below. -->
 <title>ETS FOREVER 2 — Commerce général, import-export & BTP · Yaoundé</title>
 <meta name="description" content="ETS FOREVER 2 : commerce général, import-export, BTP (bâtiment &amp; travaux publics), produits pharmaceutiques et prestations de services pour particuliers, entreprises et collectivités. Mvog-Mbi, Yaoundé." />
+<link rel="canonical" href="https://etsforever2.com/" />
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+<meta name="author" content="ETS FOREVER 2" />
 <meta name="theme-color" content="#1F6B4B" />
+<meta name="application-name" content="ETS FOREVER 2" />
+<meta name="format-detection" content="telephone=no" />
 
-<!-- Open Graph / social sharing (WhatsApp, Facebook, LinkedIn) -->
+<!-- Local SEO geo hints (Yaoundé centre) -->
+<meta name="geo.region" content="CM-CE" />
+<meta name="geo.placename" content="Yaoundé" />
+<meta name="geo.position" content="3.866667;11.516667" />
+<meta name="ICBM" content="3.866667, 11.516667" />
+
+<!-- Performance: preconnect to font + image hosts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://images.unsplash.com" />
+<link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+<!-- Icons -->
+<link rel="icon" type="image/png" href="/assets/img/logo.png" />
+<link rel="apple-touch-icon" href="/assets/img/logo.png" />
+
+<!-- Open Graph (homepage fallback) -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="ETS FOREVER 2" />
 <meta property="og:locale" content="fr_FR" />
@@ -15,16 +39,14 @@
 <meta property="og:description" content="Commerce général, import-export, BTP, produits pharmaceutiques et prestations de services pour particuliers, entreprises et collectivités. Un seul interlocuteur, des délais respectés." />
 <meta property="og:url" content="https://etsforever2.com/" />
 <meta property="og:image" content="https://etsforever2.com/banner.jpg" />
-<meta property="og:image:alt" content="ETS FOREVER 2 — Yaoundé" />
+<meta property="og:image:alt" content="ETS FOREVER 2 — entrepôt de commerce général à Mvog-Mbi, Yaoundé" />
 
 <!-- Twitter / X card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="ETS FOREVER 2 — Commerce général, import-export & BTP" />
 <meta name="twitter:description" content="Commerce général, import-export, BTP, produits pharmaceutiques et services à Yaoundé. Un seul interlocuteur, des délais respectés." />
 <meta name="twitter:image" content="https://etsforever2.com/banner.jpg" />
-
-<link rel="icon" type="image/png" href="/assets/img/logo.png" />
-<link rel="apple-touch-icon" href="/assets/img/logo.png" />
+<meta name="twitter:image:alt" content="ETS FOREVER 2 — entrepôt de commerce général à Mvog-Mbi, Yaoundé" />
 </head>
 <body>
 <div id="root"></div>

@@ -143,7 +143,10 @@ export default function Hero() {
           <motion.img
             className="w-full h-[112%] md:h-[115%] object-cover block brightness-[0.92] saturate-[1.05] will-change-transform"
             src={PHOTOS.hero}
-            alt="Personne au travail à Yaoundé"
+            alt="ETS FOREVER 2 — entrepôt de commerce général et distribution à Yaoundé"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
             style={{ y: photoY }}
           />
           {/* <div className="hero__overlay">

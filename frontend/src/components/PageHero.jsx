@@ -7,7 +7,7 @@ const fadeUp = {
 };
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } } };
 
-export default function PageHero({ eyebrow, title, intro, img, breadcrumb }) {
+export default function PageHero({ eyebrow, title, intro, img, imageAlt, breadcrumb }) {
   return (
     <section className="relative overflow-hidden bg-white pt-8 sm:pt-10 md:pt-14 pb-10 md:pb-16">
       <div className="absolute -top-[120px] -right-[120px] w-[420px] h-[420px] rounded-full pointer-events-none bg-[radial-gradient(circle,_theme(colors.brand.primary-soft)_0%,_transparent_70%)]" />
@@ -54,7 +54,10 @@ export default function PageHero({ eyebrow, title, intro, img, breadcrumb }) {
             >
               <img
                 src={img}
-                alt=""
+                alt={imageAlt || title || ''}
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
                 className="w-full h-full object-cover block brightness-[0.94] saturate-[1.05]"
               />
             </motion.aside>

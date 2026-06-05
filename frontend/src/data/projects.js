@@ -3,7 +3,7 @@
 // Images reuse the activity photos; swap for real site/conteneur/livraison
 // photos as they become available.
 
-import { PHOTOS } from './content';
+import { PHOTOS } from './content.js';
 
 export const PROJECT_CATEGORIES = [
   { slug: 'all',    label: 'Toutes' },

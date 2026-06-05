@@ -1,21 +1,19 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { PROJECTS, PROJECT_CATEGORIES } from '../data/projects';
 import PageHero from '../components/PageHero';
 import ProjectCard from '../components/ProjectCard';
 import CTABanner from '../components/CTABanner';
+import Seo from '../components/Seo';
+import { breadcrumbSchema, itemListSchema } from '../lib/jsonld';
+import { SITE_URL } from '../lib/seo';
 
-const DEFAULT_TITLE = 'ETS FOREVER 2 — Commerce général, import-export & BTP · Yaoundé';
+const REAL_DESCRIPTION = "Sélection de chantiers BTP, importations et approvisionnements menés par ETS FOREVER 2 — chantiers livrés, conteneurs débarqués, marchés publics servis au Cameroun.";
 
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.05 } } };
 
 export default function Realisations() {
   const [cat, setCat] = useState('all');
-
-  useEffect(() => {
-    document.title = 'Réalisations — ETS FOREVER 2';
-    return () => { document.title = DEFAULT_TITLE; };
-  }, []);
 
   const visible = useMemo(
     () => (cat === 'all' ? PROJECTS : PROJECTS.filter((p) => p.category === cat)),
@@ -24,6 +22,24 @@ export default function Realisations() {
 
   return (
     <>
+      <Seo
+        title="Réalisations"
+        description={REAL_DESCRIPTION}
+        path="/realisations"
+        jsonld={[
+          breadcrumbSchema([
+            { name: 'Accueil',      url: `${SITE_URL}/` },
+            { name: 'Réalisations' },
+          ]),
+          itemListSchema({
+            name: 'Réalisations ETS FOREVER 2',
+            items: PROJECTS.map((p) => ({
+              url:  `${SITE_URL}/realisations/${p.slug}`,
+              name: p.title,
+            })),
+          }),
+        ]}
+      />
       <PageHero
         eyebrow="Réalisations"
         title="Des chantiers livrés, des conteneurs débarqués, des comptes servis."

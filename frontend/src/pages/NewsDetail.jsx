@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { NEWS, formatNewsDate } from '../data/news';
 import PageHero from '../components/PageHero';
 import CTABanner from '../components/CTABanner';
-
-const DEFAULT_TITLE = 'ETS FOREVER 2 — Commerce général, import-export & BTP · Yaoundé';
+import Seo from '../components/Seo';
+import { breadcrumbSchema, newsArticleSchema } from '../lib/jsonld';
+import { SITE_URL } from '../lib/seo';
 
 function RelatedCard({ slug }) {
   const n = NEWS.find((x) => x.slug === slug);
@@ -15,7 +15,7 @@ function RelatedCard({ slug }) {
       className="group block bg-white border border-line-1 rounded-2xl overflow-hidden transition-[box-shadow,border-color] hover:shadow-lift hover:border-transparent"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-inset">
-        <img src={n.img} alt="" loading="lazy" className="w-full h-full object-cover block transition-transform duration-[600ms] ease-out group-hover:scale-[1.06]" />
+        <img src={n.img} alt={n.title} loading="lazy" decoding="async" className="w-full h-full object-cover block transition-transform duration-[600ms] ease-out group-hover:scale-[1.06]" />
       </div>
       <div className="p-5">
         <time dateTime={n.date} className="text-[11px] font-bold tracking-wider2 uppercase text-ink-3 block mb-1.5">
@@ -31,12 +31,6 @@ export default function NewsDetail() {
   const { slug } = useParams();
   const article = NEWS.find((n) => n.slug === slug);
 
-  useEffect(() => {
-    if (!article) return;
-    document.title = `${article.title} — ETS FOREVER 2`;
-    return () => { document.title = DEFAULT_TITLE; };
-  }, [article]);
-
   if (!article) return <Navigate to="/actualites" replace />;
 
   // Up to three other recent items (any category) as "Read more"
@@ -44,6 +38,30 @@ export default function NewsDetail() {
 
   return (
     <>
+      <Seo
+        title={article.title}
+        description={article.excerpt}
+        path={`/actualites/${article.slug}`}
+        image={article.img}
+        imageAlt={article.title}
+        type="article"
+        publishedTime={article.date}
+        modifiedTime={article.date}
+        jsonld={[
+          breadcrumbSchema([
+            { name: 'Accueil',    url: `${SITE_URL}/` },
+            { name: 'Actualités', url: `${SITE_URL}/actualites` },
+            { name: article.title },
+          ]),
+          newsArticleSchema({
+            slug:          article.slug,
+            headline:      article.title,
+            description:   article.excerpt,
+            datePublished: article.date,
+            image:         article.img,
+          }),
+        ]}
+      />
       <PageHero
         eyebrow={`${article.categoryLabel} · ${formatNewsDate(article.date)}`}
         title={article.title}

@@ -3,7 +3,7 @@
 // Keep entries in descending date order; the homepage and listing
 // both rely on array order to surface the most recent first.
 
-import { PHOTOS } from './content';
+import { PHOTOS } from './content.js';
 
 const FR_DATE = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 export const formatNewsDate = (iso) => FR_DATE.format(new Date(iso));

@@ -1,21 +1,19 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { NEWS, NEWS_CATEGORIES } from '../data/news';
 import PageHero from '../components/PageHero';
 import NewsCard from '../components/NewsCard';
 import CTABanner from '../components/CTABanner';
+import Seo from '../components/Seo';
+import { breadcrumbSchema, itemListSchema } from '../lib/jsonld';
+import { SITE_URL } from '../lib/seo';
 
-const DEFAULT_TITLE = 'ETS FOREVER 2 — Commerce général, import-export & BTP · Yaoundé';
+const ACT_DESCRIPTION = "Annonces, chantiers démarrés et partenariats noués par ETS FOREVER 2 — l'activité mois après mois à Yaoundé et au-delà.";
 
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.05 } } };
 
 export default function Actualites() {
   const [cat, setCat] = useState('all');
-
-  useEffect(() => {
-    document.title = 'Actualités — ETS FOREVER 2';
-    return () => { document.title = DEFAULT_TITLE; };
-  }, []);
 
   const visible = useMemo(
     () => (cat === 'all' ? NEWS : NEWS.filter((n) => n.category === cat)),
@@ -24,6 +22,24 @@ export default function Actualites() {
 
   return (
     <>
+      <Seo
+        title="Actualités"
+        description={ACT_DESCRIPTION}
+        path="/actualites"
+        jsonld={[
+          breadcrumbSchema([
+            { name: 'Accueil',    url: `${SITE_URL}/` },
+            { name: 'Actualités' },
+          ]),
+          itemListSchema({
+            name: 'Actualités ETS FOREVER 2',
+            items: NEWS.map((n) => ({
+              url:  `${SITE_URL}/actualites/${n.slug}`,
+              name: n.title,
+            })),
+          }),
+        ]}
+      />
       <PageHero
         eyebrow="Actualités"
         title="Nos dernières annonces, chantiers et partenariats."

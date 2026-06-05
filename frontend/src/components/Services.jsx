@@ -66,8 +66,9 @@ function ServiceCard({ s, i }) {
       <div className={`relative overflow-hidden bg-inset min-w-0 ${mediaClass[s.span]}`}>
         <img
           src={s.img}
-          alt=""
+          alt={`${s.title} — ETS FOREVER 2`}
           loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover block transition-transform duration-[600ms] ease-out group-hover:scale-[1.06]"
         />
         <span className="absolute top-3.5 left-3.5 bg-white/95 text-brand-primary-deep py-[5px] px-[11px] rounded-sm text-[10px] font-extrabold tracking-wider uppercase backdrop-blur-[6px]">

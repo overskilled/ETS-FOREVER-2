@@ -27,8 +27,9 @@ export default function ProjectCard({ p, i = 0 }) {
       <div className="relative aspect-[16/10] overflow-hidden bg-inset">
         <img
           src={p.img}
-          alt=""
+          alt={`${p.title} — ${p.location}`}
           loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover block transition-transform duration-[600ms] ease-out group-hover:scale-[1.06]"
         />
         <span className="absolute top-3.5 left-3.5 bg-white/95 text-brand-primary-deep py-[5px] px-[11px] rounded-sm text-[10px] font-extrabold tracking-wider uppercase backdrop-blur-[6px]">

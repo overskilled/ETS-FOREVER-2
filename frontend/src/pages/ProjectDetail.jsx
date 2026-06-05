@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { PROJECTS } from '../data/projects';
 import PageHero from '../components/PageHero';
 import CTABanner from '../components/CTABanner';
-
-const DEFAULT_TITLE = 'ETS FOREVER 2 — Commerce général, import-export & BTP · Yaoundé';
+import Seo from '../components/Seo';
+import { breadcrumbSchema, creativeWorkSchema } from '../lib/jsonld';
+import { SITE_URL } from '../lib/seo';
 
 const fadeUp = {
   hidden: { y: 18, opacity: 0 },
@@ -40,7 +40,7 @@ function RelatedCard({ slug }) {
       className="group block bg-white border border-line-1 rounded-2xl overflow-hidden transition-[box-shadow,border-color] hover:shadow-lift hover:border-transparent"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-inset">
-        <img src={p.img} alt="" loading="lazy" className="w-full h-full object-cover block transition-transform duration-[600ms] ease-out group-hover:scale-[1.06]" />
+        <img src={p.img} alt={`${p.title} — ${p.location}`} loading="lazy" decoding="async" className="w-full h-full object-cover block transition-transform duration-[600ms] ease-out group-hover:scale-[1.06]" />
       </div>
       <div className="p-5">
         <h3 className="font-display font-extrabold text-ink-1 m-0 text-base leading-tight">{p.title}</h3>
@@ -54,16 +54,32 @@ export default function ProjectDetail() {
   const { slug } = useParams();
   const project = PROJECTS.find((p) => p.slug === slug);
 
-  useEffect(() => {
-    if (!project) return;
-    document.title = `${project.title} — ETS FOREVER 2`;
-    return () => { document.title = DEFAULT_TITLE; };
-  }, [project]);
-
   if (!project) return <Navigate to="/realisations" replace />;
 
   return (
     <>
+      <Seo
+        title={project.title}
+        description={project.summary}
+        path={`/realisations/${project.slug}`}
+        image={project.img}
+        imageAlt={`${project.title} — ${project.location}`}
+        jsonld={[
+          breadcrumbSchema([
+            { name: 'Accueil',      url: `${SITE_URL}/` },
+            { name: 'Réalisations', url: `${SITE_URL}/realisations` },
+            { name: project.title },
+          ]),
+          creativeWorkSchema({
+            slug:        project.slug,
+            name:        project.title,
+            description: project.summary,
+            image:       project.img,
+            year:        project.year,
+            location:    project.location,
+          }),
+        ]}
+      />
       <PageHero
         eyebrow={project.categoryLabel}
         title={project.title}

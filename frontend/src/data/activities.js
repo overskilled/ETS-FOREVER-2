@@ -1,7 +1,7 @@
 // Detailed copy per activity, used by /activites/:slug pages.
 // Slugs are the URL segment AND the key into this map.
 
-import { PHOTOS } from './content';
+import { PHOTOS } from './content.js';
 
 export const ACTIVITY_SLUGS = ['commerce', 'import-export', 'btp', 'sante', 'services'];
 
