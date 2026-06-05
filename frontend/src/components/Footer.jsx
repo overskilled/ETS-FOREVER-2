@@ -10,9 +10,10 @@ export default function Footer() {
       { to: '/activites/services',      label: 'Prestation de services' },
     ]},
     { title: 'Maison', links: [
-      { href: '/#pourquoi', label: 'Notre histoire' },
-      { href: '/#process',  label: 'Notre méthode' },
-      { href: '/#contact',  label: 'Nous trouver' },
+      { to:   '/realisations', label: 'Réalisations' },
+      { href: '/#pourquoi',    label: 'Notre histoire' },
+      { href: '/#process',     label: 'Notre méthode' },
+      { href: '/#contact',     label: 'Nous trouver' },
     ]},
     { title: 'Contact', links: [
       { href: 'tel:+237676818547',              label: '+237 6 76 81 85 47' },

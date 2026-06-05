@@ -26,13 +26,15 @@ export const STATS = [
   { value: 12, suffix: ' ans', label: "D'expérience\nà Yaoundé" },
 ];
 
-// NAV hrefs use the `/#hash` form so they work on inner pages too
+// NAV items use `to` for router-driven routes (SPA navigation) and `href`
+// for hash anchors. Hash hrefs use `/#hash` so they work cross-page
 // (browser navigates to `/` then scrolls to the anchor).
 export const NAV = [
-  { href: '/#services',  label: 'Activités' },
-  { href: '/#pourquoi',  label: 'Pourquoi nous' },
-  { href: '/#process',   label: 'Notre méthode' },
-  { href: '/#contact',   label: 'Contact' },
+  { href: '/#services',   label: 'Activités' },
+  { to:   '/realisations', label: 'Réalisations' },
+  { href: '/#pourquoi',   label: 'Pourquoi nous' },
+  { href: '/#process',    label: 'Notre méthode' },
+  { href: '/#contact',    label: 'Contact' },
 ];
 
 export const SERVICES = [

@@ -8,6 +8,8 @@ import AnnouncementBar from './components/AnnouncementBar';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import ActivityDetail from './pages/ActivityDetail';
+import Realisations from './pages/Realisations';
+import ProjectDetail from './pages/ProjectDetail';
 
 export default function App() {
   return (
@@ -20,6 +22,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/activites/:slug" element={<ActivityDetail />} />
+        <Route path="/realisations" element={<Realisations />} />
+        <Route path="/realisations/:slug" element={<ProjectDetail />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />

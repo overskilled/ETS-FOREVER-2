@@ -3,6 +3,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { NAV } from '../data/content';
 
+const MotionLink = motion(Link);
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -39,15 +41,14 @@ export default function Header() {
           </Link>
 
           <nav className="hidden md:flex gap-[26px]" aria-label="Navigation principale">
-            {NAV.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="relative text-sm font-semibold text-ink-2 py-1.5 transition-colors hover:text-brand-primary after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-0.5 after:bg-brand-secondary after:scale-x-0 after:origin-left after:transition-transform after:duration-200 after:ease-out hover:after:scale-x-100"
-              >
-                {item.label}
-              </a>
-            ))}
+            {NAV.map((item) => {
+              const cls = "relative text-sm font-semibold text-ink-2 py-1.5 transition-colors hover:text-brand-primary after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-0.5 after:bg-brand-secondary after:scale-x-0 after:origin-left after:transition-transform after:duration-200 after:ease-out hover:after:scale-x-100";
+              return item.to ? (
+                <Link key={item.to} to={item.to} className={cls}>{item.label}</Link>
+              ) : (
+                <a key={item.href} href={item.href} className={cls}>{item.label}</a>
+              );
+            })}
           </nav>
 
           <a
@@ -90,19 +91,23 @@ export default function Header() {
               transition={{ duration: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
               aria-label="Navigation mobile"
             >
-              {NAV.map((item, i) => (
-                <motion.a
-                  key={item.href}
-                  href={item.href}
-                  onClick={close}
-                  className="font-display text-3xl font-extrabold tracking-tightest text-ink-1 py-2 leading-tight border-b border-line-2 last:border-b-0 hover:text-brand-primary-deep"
-                  initial={{ y: 16, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.05 + i * 0.04, duration: 0.3 }}
-                >
-                  {item.label}
-                </motion.a>
-              ))}
+              {NAV.map((item, i) => {
+                const cls = "font-display text-3xl font-extrabold tracking-tightest text-ink-1 py-2 leading-tight border-b border-line-2 last:border-b-0 hover:text-brand-primary-deep";
+                const anim = {
+                  initial:    { y: 16, opacity: 0 },
+                  animate:    { y: 0,  opacity: 1 },
+                  transition: { delay: 0.05 + i * 0.04, duration: 0.3 },
+                };
+                return item.to ? (
+                  <MotionLink key={item.to} to={item.to} onClick={close} className={cls} {...anim}>
+                    {item.label}
+                  </MotionLink>
+                ) : (
+                  <motion.a key={item.href} href={item.href} onClick={close} className={cls} {...anim}>
+                    {item.label}
+                  </motion.a>
+                );
+              })}
               <motion.a
                 href="/#contact"
                 onClick={close}
